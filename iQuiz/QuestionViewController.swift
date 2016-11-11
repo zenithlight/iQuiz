@@ -8,19 +8,40 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
-
+class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var picker: UIPickerView!
+    
+    @IBAction func button(_ sender: AnyObject) {
+        previousChoice = picker.selectedRow(inComponent: 0)
+        performSegue(withIdentifier: "answerSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.title = selectedItem.title
+        label.text = selectedItem.questions[currentQuestion]
+        
+        picker.dataSource = self
+        picker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return selectedItem.choices[currentQuestion].count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return selectedItem.choices[currentQuestion][row]
+    }
 
     /*
     // MARK: - Navigation

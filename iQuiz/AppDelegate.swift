@@ -8,6 +8,44 @@
 
 import UIKit
 
+struct QuizItem {
+    var image = UIImage(contentsOfFile: "/Users/pjha/Downloads/Alpha-50.png")
+    var title = ""
+    var description = ""
+    var questions = [""]
+    var answers = [0]
+    var choices = [[""]]
+}
+
+let items: Array<QuizItem> = [
+    QuizItem(image: UIImage(contentsOfFile: "/Users/pjha/Downloads/Alpha-50.png"),
+             title: "Mathematics",
+             description: "Simple equations and formulas",
+             questions: ["2+2", "5*3", "7^2"],
+             answers: [1, 1, 0],
+             choices: [["3", "4", "5", "6"], ["14", "15", "16", "17"], ["49", "50", "51", "52"]]
+    ),
+    QuizItem(image: UIImage(contentsOfFile: "/Users/pjha/Downloads/Movie-50.png"),
+             title: "Marvel Super Heroes",
+             description: "Beloved comic book characters",
+             questions: ["2+2", "5*3", "7^2"],
+             answers: [1, 1, 0],
+             choices: [["3", "4", "5", "6"], ["14", "15", "16", "17"], ["49", "50", "51", "52"]]
+    ),
+    QuizItem(image: UIImage(contentsOfFile: "/Users/pjha/Downloads/Biotech-50.png"),
+             title: "Science",
+             description: "Physics, chemistry, and more",
+             questions: ["2+2", "5*3", "7^2"],
+             answers: [1, 1, 0],
+             choices: [["3", "4", "5", "6"], ["14", "15", "16", "17"], ["49", "50", "51", "52"]]
+    )
+]
+
+var selectedItem: QuizItem = items[0]
+var currentQuestion: Int = 0
+var totalCorrect: Int = 0
+var previousChoice: Int = 0
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
