@@ -10,8 +10,12 @@ import UIKit
 
 class QuizTableViewController: UITableViewController {
     @IBAction func settingsPressed(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Settings", message: "Enter quiz source", preferredStyle: .alert)
+        alert.addTextField()
+        alert.addAction(UIAlertAction(title: "Check Now", style: UIAlertActionStyle.default, handler: {
+            (action) -> Void in
+            self.loadQuizzes(from: (alert.textFields![0].text)!)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
