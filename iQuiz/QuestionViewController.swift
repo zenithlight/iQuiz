@@ -21,7 +21,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         
         self.title = selectedItem.title
-        label.text = selectedItem.questions[currentQuestion]
+        label.text = selectedItem.questions[currentQuestion]["text"] as? String
         
         picker.dataSource = self
         picker.delegate = self
@@ -36,10 +36,10 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return selectedItem.choices[currentQuestion].count
+        return (selectedItem.questions[currentQuestion]["answers"] as? Array<String>)!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return selectedItem.choices[currentQuestion][row]
+        return (selectedItem.questions[currentQuestion]["answers"] as? Array<String>)![component]
     }
 }

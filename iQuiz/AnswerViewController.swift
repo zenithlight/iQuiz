@@ -26,9 +26,11 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionLabel.text = selectedItem.questions[currentQuestion]
+        questionLabel.text = selectedItem.questions[currentQuestion]["text"] as? String
         
-        if previousChoice == selectedItem.answers[currentQuestion] {
+        let correctAnswerIndex = Int((selectedItem.questions[currentQuestion]["answer"] as? String)!)
+        
+        if previousChoice == correctAnswerIndex {
             correctLabel.text = "Correct!"
             totalCorrect += 1
         }
@@ -36,7 +38,7 @@ class AnswerViewController: UIViewController {
             correctLabel.text = "Incorrect!"
         }
         
-        answerLabel.text = "Correct answer: " + selectedItem.choices[currentQuestion][selectedItem.answers[currentQuestion]]
+        answerLabel.text = "Correct answer: " + ((selectedItem.questions[currentQuestion]["answers"] as? Array<String>)?[correctAnswerIndex!])!
     }
 
     override func didReceiveMemoryWarning() {

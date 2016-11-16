@@ -66,12 +66,12 @@
 		32B413671DCC46FD0021239E /* iQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				325BFD461DD5CD6C0040BF0F /* QuestionViewController.swift */,
 				32B413851DCC54F70021239E /* QuizTableViewController.swift */,
 				32B413681DCC46FD0021239E /* AppDelegate.swift */,
 				32B4136C1DCC46FD0021239E /* Main.storyboard */,
 				32D8504E1DD5E24800038FEA /* ResultsViewController.swift */,
 				32D8504C1DD5E02000038FEA /* AnswerViewController.swift */,
-				325BFD461DD5CD6C0040BF0F /* QuestionViewController.swift */,
 				32B4137E1DCC51D80021239E /* Table Icons */,
 				32B4136F1DCC46FD0021239E /* Assets.xcassets */,
 				32B413711DCC46FD0021239E /* LaunchScreen.storyboard */,

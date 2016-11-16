@@ -9,37 +9,12 @@
 import UIKit
 
 struct QuizItem {
-    var image = UIImage(contentsOfFile: "/Users/pjha/Downloads/Alpha-50.png")
-    var title = ""
-    var description = ""
-    var questions = [""]
-    var answers = [0]
-    var choices = [[""]]
+    var title: String = ""
+    var description: String = ""
+    var questions: Array<Dictionary<String, AnyObject>> = []
 }
 
-let items: Array<QuizItem> = [
-    QuizItem(image: UIImage(contentsOfFile: "/Users/pjha/Downloads/Alpha-50.png"),
-             title: "Mathematics",
-             description: "Simple equations and formulas",
-             questions: ["2+2", "5*3", "7^2"],
-             answers: [1, 1, 0],
-             choices: [["3", "4", "5", "6"], ["14", "15", "16", "17"], ["49", "50", "51", "52"]]
-    ),
-    QuizItem(image: UIImage(contentsOfFile: "/Users/pjha/Downloads/Movie-50.png"),
-             title: "Marvel Super Heroes",
-             description: "Beloved comic book characters",
-             questions: ["Who was the first black hero in mainstream American comics?", "The Hulk was transformed by these electromagnetic rays:", "What is Iron Man (Tony Stark)'s net worth?"],
-             answers: [1, 1, 0],
-             choices: [["Black Panther", "Black Widow", "Cable", "Deadpool"], ["X-Ray", "Ultraviolet", "Infrared", "Gamma"], ["$120 million", "$55.6 billion", "$8.8 billion", "$6"]]
-    ),
-    QuizItem(image: UIImage(contentsOfFile: "/Users/pjha/Downloads/Biotech-50.png"),
-             title: "Science",
-             description: "Physics, chemistry, and more",
-             questions: ["The general and special theories of relativity are attributed to whom?", "So-called heavy water is how much denser than regular water?", "What is the process by which plants convert carbon dioxide and sunlight into food?"],
-             answers: [1, 1, 0],
-             choices: [["Thomas Edison", "Albert Einstein", "Nikola Tesla", "Jimi Hendrix"], ["10%", "20%", "4%", "85%"], ["Cooking", "Photosynthesis", "Organic solarization", "Osmosis"]]
-    )
-]
+var items: Array<QuizItem> = []
 
 var selectedItem: QuizItem = items[0]
 var currentQuestion: Int = 0
@@ -48,12 +23,9 @@ var previousChoice: Int = 0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
 
