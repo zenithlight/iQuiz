@@ -40,6 +40,6 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (selectedItem.questions[currentQuestion]["answers"] as? Array<String>)![component]
+        return (selectedItem.questions[currentQuestion]["answers"] as? Array<String>)![row]
     }
 }
